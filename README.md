@@ -6,19 +6,6 @@ Scope is medical, dental, imaging and trauma care. Vehicle child restraints (car
 
 ---
 
-## Contents
-
-1. [Pipeline overview](#1-pipeline-overview)
-2. [Results at a glance](#2-results-at-a-glance)
-3. [Repository structure](#3-repository-structure)
-4. [Setup](#4-setup)
-5. [Running the pipeline](#5-running-the-pipeline)
-6. [Stage details](#6-stage-details)
-7. [Output files](#7-output-files)
-8. [Limitations](#8-limitations)
-9. [Documentation and references](#9-documentation-and-references)
-
----
 
 ## 1. Pipeline overview
 
@@ -53,36 +40,6 @@ Every stage reads the output of the previous one and can be re-run on its own. E
 | Expert checklist | 13 guideline points; 50 relevant videos with model score >= 0.90, plus a 30-video TikTok comparison sample |
 
 Of the 160 strict relevant videos, 104 are human-labeled and 56 are model-selected. The strict set is a **high-confidence subset**, not the full set of relevant videos (see [Limitations](#8-limitations)).
-
-## 3. Repository structure
-
-```
-restraint_video_screening/
-├── config/
-│   ├── queries.csv                 25 English search queries (query_id, query, subtopic)
-│   └── settings.yaml               paths, YouTube/TikTok limits, transcript settings
-├── data/
-│   ├── raw/                        one CSV per query (+ _manifest.csv)
-│   ├── cache/                      saved API responses, metadata, transcripts
-│   ├── intermediate/               master_raw, master_deduplicated, master_cleaned, query_video_map, dropped_records
-│   ├── annotation/                 pilot/ and main/ : keys and annotator workbooks
-│   └── final/
-│       ├── labeled_set.csv         human labels (400)
-│       ├── screening/              model results, report, relevant / irrelevant / audit lists
-│       ├── checklist/              expert-guideline checklist workbooks
-│       └── eda/                    feature tables used by the EDA
-├── reports/eda/                    EDA reports, tables and figures (strict/, all/, robustness/)
-├── docs/
-│   ├── screening_criteria.md/.docx labeling criteria, grounded in published guidelines
-│   ├── annotation_workflow.md      how annotators work, step by step
-│   ├── extraction_design.md        tools, caching, reliability
-│   └── data_dictionary.md          every column in every file
-├── scripts/                        command-line entry points (section 5)
-├── src/vidscreen/                  library code: extractors, preprocessing, annotation, screening
-├── tests/                          unit tests (no internet needed)
-├── .env.example                    copy to .env and add the TikTok API key
-└── requirements.txt
-```
 
 ## 4. Setup
 
