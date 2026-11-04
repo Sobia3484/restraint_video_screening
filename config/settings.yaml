@@ -1,0 +1,33 @@
+# Central configuration. CLI flags override these values for a single run.
+paths:
+  queries_file: config/queries.csv
+  raw_dir: data/raw            # one CSV per query lands here
+  cache_dir: data/cache        # API responses / metadata / transcripts (resume + no repeat cost)
+  intermediate_dir: data/intermediate   # master_raw / deduplicated / cleaned
+  final_dir: data/final                 # reserved for the later screening stage
+  log_dir: logs
+
+youtube:                       # via yt-dlp (no API key needed)
+  results_per_query: 60        # top-N search results per query
+  workers: 4                   # parallel metadata/transcript fetches
+  request_sleep_seconds: 1.0   # polite delay before each video request
+  max_retries: 3
+  cookies_file: ""             # optional cookies.txt if YouTube asks to "confirm you're not a bot"
+
+tiktok:                        # via ScrapeCreators (needs SCRAPECREATORS_API_KEY in .env)
+  pages_per_query: 2           # 1 page = 1 credit. 25 queries x 2 pages = 50 credits
+  date_posted: all-time
+  sort_by: relevance
+  region: ""                   # "" = no proxy region. NOTE: this is not a country filter
+  max_credits_per_run: 60      # hard stop for one run (50 needed for the full run)
+  credit_reserve: 0            # credits never spent on the account (0 = use the account up completely)
+  request_sleep_seconds: 0.5
+  timeout_seconds: 60
+  max_retries: 3
+
+transcripts:
+  enabled: true
+  preferred_languages: [en]           # tried in this order, then any available language (all queries are English)
+  block_threshold: 5                  # stop YouTube transcripts after N consecutive IP blocks
+  youtube_sleep_seconds: 3.0          # minimum gap between YouTube transcript requests (avoids IP blocks)
+  youtube_workers: 1                  # parallel YouTube transcript requests (keep at 1)

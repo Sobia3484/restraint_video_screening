@@ -1,0 +1,26 @@
+query_id,query,subtopic,query_language
+Q001,Safe restraint techniques for infants and young children,general,en
+Q002,Pediatric restraint and immobilization techniques,general,en
+Q003,Infant immobilization techniques,general,en
+Q004,Clinical holding for children,clinical_holding,en
+Q005,Therapeutic holding for children during procedures,clinical_holding,en
+Q006,Comfort holding positions for infants,clinical_holding,en
+Q007,Papoose board for children,clinical_holding,en
+Q008,Swaddling infant for medical procedures,clinical_holding,en
+Q009,How to hold a baby still for a blood draw,needle_procedures,en
+Q010,Holding a child safely for an injection,needle_procedures,en
+Q011,Pediatric venipuncture positioning and holding,needle_procedures,en
+Q012,Positioning a child for IV insertion,needle_procedures,en
+Q013,Infant immobilization for X-ray,imaging,en
+Q014,Pediatric MRI swaddling and immobilization,imaging,en
+Q015,Pediatric radiography immobilization devices,imaging,en
+Q016,Pediatric spinal immobilization,trauma_spinal,en
+Q017,Infant spinal motion restriction,trauma_spinal,en
+Q018,Pediatric splinting and fracture immobilization,trauma_spinal,en
+Q019,Pediatric dental protective stabilization,dental,en
+Q020,Risks and complications of physical restraint in pediatric patients,safety_risks,en
+Q021,Pediatric patient restraint guidelines in healthcare,safety_risks,en
+Q022,Distraction instead of restraint for children during procedures,alternatives,en
+Q023,NICU infant positioning and immobilization,neonatal,en
+Q024,Holding a toddler for ear examination,examination_procedures,en
+Q025,Immobilizing a child for laceration repair,wound_care,en
