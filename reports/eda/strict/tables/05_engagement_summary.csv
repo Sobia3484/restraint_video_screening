@@ -1,0 +1,5 @@
+﻿measure,platform,videos_with_rate,videos_with_100plus_views,videos_with_zero_rate,mean,std,min,p01,q1,median,q3,p90,p99,max
+like rate,youtube,81,86,0,0.797,0.845,0.031,0.069,0.281,0.563,1.072,1.437,3.524,6.03
+like rate,tiktok,62,62,0,2.532,2.435,0.359,0.404,0.998,1.854,3.146,4.679,12.145,12.262
+comment rate,youtube,41,86,0,0.119,0.192,0.001,0.001,0.017,0.043,0.147,0.26,0.851,1.005
+comment rate,tiktok,62,62,13,0.092,0.14,0.0,0.0,0.007,0.05,0.105,0.208,0.613,0.703

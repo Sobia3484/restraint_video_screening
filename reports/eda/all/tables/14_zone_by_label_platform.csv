@@ -1,0 +1,6 @@
+﻿screening_label,zone,tiktok,youtube
+audit,audit,919,851
+irrelevant,human_label,152,144
+irrelevant,irrelevant_confident,58,35
+relevant,human_label,48,56
+relevant,relevant_confident,17,39

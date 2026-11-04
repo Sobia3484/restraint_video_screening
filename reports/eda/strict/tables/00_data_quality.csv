@@ -1,0 +1,22 @@
+﻿check,platform,value
+rows,all,160
+unique video_uid,all,160
+duplicate video_uid,all,0
+videos,youtube,95
+"negative numeric values (views, likes, comments, shares, saves, duration)",youtube,0
+zero views,youtube,0
+likes greater than views,youtube,0
+comments greater than views,youtube,0
+upload date after the collection date,youtube,0
+upload date missing,youtube,0
+duration over 3 hours,youtube,0
+duplicate title and creator,youtube,0
+videos,tiktok,65
+"negative numeric values (views, likes, comments, shares, saves, duration)",tiktok,0
+zero views,tiktok,0
+likes greater than views,tiktok,0
+comments greater than views,tiktok,0
+upload date after the collection date,tiktok,0
+upload date missing,tiktok,0
+duration over 3 hours,tiktok,0
+duplicate title and creator,tiktok,0

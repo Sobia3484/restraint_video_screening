@@ -1,0 +1,3 @@
+﻿source,videos,youtube_share_pct,creators,median_duration_s,median_views,median_like_rate_pct,with_transcript_pct,non_english_text_pct
+human-labeled,104,53.8,103,120.39500000000001,5371.5,1.18,23.1,10.6
+model-selected,56,69.6,51,140.66500000000002,2736.0,0.66,8.9,12.5

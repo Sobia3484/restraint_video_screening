@@ -35,6 +35,8 @@ Scope is medical, dental, imaging and trauma care. Vehicle child restraints (car
         |                -> relevant (strict) / audit / irrelevant
         |
  [5] Expert checklist .. relevant videos assessed against guideline-based points
+        |
+ [6] EDA ............... descriptive analysis of the strict set and of all videos by screening group
 ```
 
 Every stage reads the output of the previous one and can be re-run on its own. Extraction caches everything it fetches, so interrupted runs resume without repeating cost.
@@ -67,7 +69,9 @@ restraint_video_screening/
 │   └── final/
 │       ├── labeled_set.csv         human labels (400)
 │       ├── screening/              model results, report, relevant / irrelevant / audit lists
-│       └── checklist/              expert-guideline checklist workbooks
+│       ├── checklist/              expert-guideline checklist workbooks
+│       └── eda/                    feature tables used by the EDA
+├── reports/eda/                    EDA reports, tables and figures (strict/, all/, robustness/)
 ├── docs/
 │   ├── screening_criteria.md/.docx labeling criteria, grounded in published guidelines
 │   ├── annotation_workflow.md      how annotators work, step by step
@@ -150,6 +154,12 @@ Useful options:
 
 Re-running is safe: finished queries are skipped and everything fetched is cached.
 
+```powershell
+# 6. Exploratory data analysis
+python scripts/run_eda.py                    # strict set + all videos, 15 sections -> reports/eda/strict and reports/eda/all
+python scripts/run_eda_robustness.py         # creator-cap and human-vs-model checks -> reports/eda/robustness
+```
+
 ## 6. Stage details
 
 ### 6.1 Extraction
@@ -184,6 +194,9 @@ Each cell is **✓** (shown or said correctly), **✗** (contradicts the guideli
 
 Workbook sheets: `Checklist_Detail` (the grid to review), `Format` (compact view), `Summary` (live counts and averages), `Checklist_Guide` (points and sources), `Evidence`, `Method_and_Limits`.
 
+### 6.6 Exploratory data analysis
+`run_eda.py` runs on two datasets: **strict** (the 160 relevant videos) and **all** (2,319 videos with their screening group). Each report has 15 sections: data quality, derived features, overview, duration, views, engagement, upload trends, language and country, creators, subtopics (clinical setting), query analysis, text analysis, transcripts and usable text, techniques mentioned, and screening outcome. Platform comparisons use Mann-Whitney tests with Cliff's delta and bootstrap confidence intervals. Age group, setting, techniques and language come from keyword rules and are descriptive, not validated. `run_eda_robustness.py` repeats the key results with at most 3 videos per creator and compares human-labeled with model-selected videos in the strict set.
+
 ## 7. Output files
 
 | File | Description |
@@ -196,6 +209,8 @@ Workbook sheets: `Checklist_Detail` (the grid to review), `Format` (compact view
 | `data/final/screening/audit_videos.csv` | 1,770 videos needing review |
 | `data/final/screening/screening_report.md/.json` | methods, model comparison, calibration, thresholds |
 | `data/final/checklist/*.xlsx` | expert-guideline checklist workbooks |
+| `reports/eda/<strict\|all>/EDA_report.md` | EDA report with `tables/` and `figures/` |
+| `reports/eda/robustness/robustness_report.md` | creator-cap and human-vs-model checks |
 
 Column definitions are in `docs/data_dictionary.md`.
 

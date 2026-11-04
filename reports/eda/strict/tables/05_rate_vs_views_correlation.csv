@@ -1,0 +1,5 @@
+﻿platform,rate,n,spearman_rho_vs_log_views,p_value
+youtube,like_rate,81,-0.138,0.21953540993187404
+youtube,comment_rate,41,-0.694,4.948958593184602e-07
+tiktok,like_rate,62,0.071,0.585914043824302
+tiktok,comment_rate,62,0.131,0.3083962095532509

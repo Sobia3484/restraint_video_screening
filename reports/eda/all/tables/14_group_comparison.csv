@@ -1,0 +1,5 @@
+﻿measure,median_relevant,median_audit,median_irrelevant,kruskal_p
+duration (s),124.0,90.15,90.96,0.256
+views,3917.5,17657.0,19047.0,0.0
+title+description words,26.0,43.0,54.0,0.006
+transcript words (videos with a transcript),94.0,167.5,207.5,0.001
